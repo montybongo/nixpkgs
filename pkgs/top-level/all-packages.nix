@@ -8154,6 +8154,8 @@ let
 
   hello = callPackage ../applications/misc/hello/ex-2 { };
 
+  tobias-cgroup-manager = callPackage ../applications/misc/tobias-cgroup-manager { };
+
   herbstluftwm = callPackage ../applications/window-managers/herbstluftwm { };
 
   hexedit = callPackage ../applications/editors/hexedit { };

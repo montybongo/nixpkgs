@@ -501,6 +501,8 @@ let result = let callPackage = x : y : modifyPrio (newScope result.finalReturn x
   # Haskell libraries.
 
   acidState = callPackage ../development/libraries/haskell/acid-state {};
+  
+  tobias-cgroup-manager = callPackage ../development/libraries/haskell/tobias-cgroup-manager {};
 
   Agda = callPackage ../development/libraries/haskell/Agda {};
 

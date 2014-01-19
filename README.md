@@ -72,7 +72,7 @@ Install the tobias-cgroup-manager package
 nix-env -f . -iA haskellPackages.tobias-cgroup-manager
 ```
 
-Create a symlink to the tobias-cgroup-manager binary, this is so we don't have to have our whole bin exposed by Apache
+Create a symlink to the tobias-cgroup-manager binary, this is so we don't need to have our whole bin exposed by Apache
 
 ```
 mkdir /wwwroot/fcgi-bin/ -p

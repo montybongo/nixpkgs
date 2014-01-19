@@ -28,7 +28,7 @@ Add the following configuration in  /etc/nixos/configuration.nix
     AllowEncodedSlashes NoDecode
     ScriptAlias /tobias-cgroup-manager/ /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi/
     FastCgiIpcDir /tmp/
-    FastCgiServer /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi -initial-env YESOD_ENVIRONMENT=Production -initial-env PATH:/root/bin:/var/setuid-wrappers:/root/.nix-profile/bin:/root/.nix-profile/sbin:/root/.nix-profile/lib/kde4/libexec:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/nix/var/nix/profiles/default/lib/kde4/libexec:/run/current-system/sw/bin:/run/current-system/sw/sbin:/run/current-system/sw/lib/kde4/libexec
+    FastCgiServer /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi -initial-env YESOD_ENVIRONMENT=Production -initial-env PATH=/root/bin:/var/setuid-wrappers:/root/.nix-profile/bin:/root/.nix-profile/sbin:/root/.nix-profile/lib/kde4/libexec:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/nix/var/nix/profiles/default/lib/kde4/libexec:/run/current-system/sw/bin:/run/current-system/sw/sbin:/run/current-system/sw/lib/kde4/libexec
     <Directory /wwwroot/fcgi-bin/>
       Options Indexes FollowSymLinks
       AllowOverride None
@@ -69,7 +69,7 @@ git checkout tobias-cgroup-manager
 Install the tobias-cgroup-manager package
 
 ```
-nix-env -f . -iA tobias-cgroup-manager
+nix-env -f . -iA haskellPackages.tobias-cgroup-manager
 ```
 
 Create a symlink to the tobias-cgroup-manager binary, this is so we don't have to have our whole bin exposed by Apache
@@ -85,7 +85,7 @@ We need to supply some sensible default configuration files in a config folder n
 cd /wwwroot/fcgi-bin/
 curl -o config.tar.gz https://s3.amazonaws.com/tobiaspersonal/tobias-cgroup-manager/config.tar.gz
 tar -zxvf config.tar.gz 
-nano config/settings.yml and change the approot to the base url where you will be hosting the application
+nano config/settings.yml and change the approot to the base url where you will be hosting the application for example http://127.0.0.1/tobias-cgroup-manager/
 chmod a+w /wwwroot/fcgi-bin/config
 ```
 

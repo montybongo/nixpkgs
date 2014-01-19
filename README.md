@@ -28,7 +28,7 @@ Add the following configuration in  /etc/nixos/configuration.nix
     AllowEncodedSlashes NoDecode
     ScriptAlias /tobias-cgroup-manager/ /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi/
     FastCgiIpcDir /tmp/
-    FastCgiServer /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi -initial-env YESOD_ENVIRONMENT=Production -initial-env PATH:/var/setuid-wrappers:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/nix/var/nix/profiles/default/lib/kde4/libexec:/run/current-system/sw/bin:/run/current-system/sw/sbin:/run/current-system/sw/lib/kde4/libexec
+    FastCgiServer /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi -initial-env YESOD_ENVIRONMENT=Production -initial-env PATH:/root/bin:/var/setuid-wrappers:/root/.nix-profile/bin:/root/.nix-profile/sbin:/root/.nix-profile/lib/kde4/libexec:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/nix/var/nix/profiles/default/lib/kde4/libexec:/run/current-system/sw/bin:/run/current-system/sw/sbin:/run/current-system/sw/lib/kde4/libexec
     <Directory /wwwroot/fcgi-bin/>
       Options Indexes FollowSymLinks
       AllowOverride None

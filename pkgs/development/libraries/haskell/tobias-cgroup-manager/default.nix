@@ -11,7 +11,7 @@ cabal.mkDerivation (self: {
   version = "0.0.1";
   src = fetchurl {
     url = https://s3.amazonaws.com/tobiaspersonal/tobias-cgroup-manager/tobias-cgroup-manager.tar.gz;
-    md5 = "8470c68f5e4d21b5524a739711a50d20";
+    md5 = "2b9e7cf8b2973cb8bf5d2a2d4f6aa6b5";
   };
   sha256 = "6a324992babca33cb62fc6bc1306d784";
   isLibrary = true;

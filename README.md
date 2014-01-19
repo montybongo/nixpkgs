@@ -10,6 +10,11 @@ This can be installed on nixos by: (You can grab a nixos AMI reference from: htt
 Add the following configuration in  /etc/nixos/configuration.nix
 
 ```
+  security.sudo.enable = true;
+  security.sudo.configFile =
+    ''
+      wwwrun   ALL=(ALL) NOPASSWD: /nix/var/nix/profiles/default/bin/cgclassify
+    '';
   services.httpd.enable = true;
   services.httpd.adminAddr = "tobias@example.org";
   services.httpd.documentRoot = "/webroot";
@@ -23,7 +28,7 @@ Add the following configuration in  /etc/nixos/configuration.nix
     AllowEncodedSlashes NoDecode
     ScriptAlias /tobias-cgroup-manager/ /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi/
     FastCgiIpcDir /tmp/
-    FastCgiServer /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi -initial-env PATH=/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin -initial-env YESOD_ENVIRONMENT=Production
+    FastCgiServer /wwwroot/fcgi-bin/tobias-cgroup-manager.fcgi -initial-env YESOD_ENVIRONMENT=Production -initial-env PATH:/var/setuid-wrappers:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/nix/var/nix/profiles/default/lib/kde4/libexec:/run/current-system/sw/bin:/run/current-system/sw/sbin:/run/current-system/sw/lib/kde4/libexec
     <Directory /wwwroot/fcgi-bin/>
       Options Indexes FollowSymLinks
       AllowOverride None
